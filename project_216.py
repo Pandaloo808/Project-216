@@ -18,7 +18,10 @@ actor_list = []
 
 def generate_radar_blueprint(blueprint_library):
     radar_blueprint = blueprint_library.filter('sensor.other.radar')[0]
-    #write code here
+    radar_blueprint.set_attribute('horizontal_fov', str(45))
+    radar_blueprint.set_attribute('vertical_fov', str(35))
+    radar_blueprint.set_attribute('points_per_second', str(2000))
+    radar_blueprint.set_attribute('range', str(35))
     return radar_blueprint
 
 
@@ -49,8 +52,11 @@ try:
 
     def _Radar_callback(radar_data):
         for detection in radar_data:
-            #write code here
-
+            final_velocity=detection.velocty 
+            initial_velocity=0.5
+            time=1
+            acceleration = (-(final_velocity - intial_velocity)) / time
+            print(acceleration)
 
 
     actor_list.append(sensor)
